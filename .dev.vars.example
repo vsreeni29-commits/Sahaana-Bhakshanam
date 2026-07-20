@@ -1,0 +1,21 @@
+# Copy to .dev.vars for local development. NEVER commit .dev.vars.
+# All values below are placeholders — real values live only in hosted secrets.
+
+# Chef/admin allowlist (E.164, comma separated). Use your own test numbers locally.
+CHEF_PHONE_E164_LIST=+910000000001,+910000000002
+
+# HMAC key for OTP hashing. Generate: openssl rand -hex 32
+OTP_HASH_SECRET=replace-with-random-hex
+
+# Local demo OTP (development only; production keeps OTP_DEMO_MODE=false)
+OTP_DEMO_MODE=true
+OTP_DEMO_CODE=000000
+
+# Twilio Verify (leave unset locally unless testing real SMS)
+# TWILIO_ACCOUNT_SID=
+# TWILIO_AUTH_TOKEN=
+# TWILIO_VERIFY_SERVICE_SID=
+
+# WhatsApp Business / direct-message relay (leave unset until the relay exists)
+# ORDER_RELAY_URL=
+# ORDER_RELAY_SECRET=

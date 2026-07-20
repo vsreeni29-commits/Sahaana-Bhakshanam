@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  web:
+    name: Lint, typecheck, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: TypeScript checks
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build web client + validate Worker artifact
+        # `wrangler deploy --dry-run` verifies the ESM Worker bundles with a
+        # callable fetch handler, its bindings, and the assets manifest.
+        run: npm run build
+
+      - name: Verify D1 migrations are present in the artifact context
+        run: test -f migrations/0001_init.sql && test -f dist/worker/index.js

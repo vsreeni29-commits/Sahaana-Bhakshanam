@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.wrangler/
+
+# Secrets — never commit real values
+.dev.vars
+.env
+.env.*
+!.dev.vars.example
+
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/captures/
+*.keystore
+*.jks
+
+# Editor / OS
+.DS_Store
+.idea/
+*.iml
+.vscode/
