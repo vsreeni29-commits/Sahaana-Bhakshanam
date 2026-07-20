@@ -1,0 +1,10 @@
+{
+  "name": "Sahaana Bhakshanam",
+  "short_name": "Sahaana",
+  "description": "Pure-vegetarian, home-cooked Tamil Brahmin Iyer food. Order by meal session, pay only at delivery.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf3e3",
+  "theme_color": "#3d1f3f",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

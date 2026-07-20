@@ -1,0 +1,38 @@
+{
+  "name": "sahaana-bhakshanam",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sahaana Bhakshanam — pure-vegetarian Tamil Brahmin Iyer home kitchen: storefront, chef dashboard, API and Android shell.",
+  "scripts": {
+    "dev": "npm run build:web && wrangler dev",
+    "dev:web": "vite --config web/vite.config.ts",
+    "build:web": "vite build --config web/vite.config.ts",
+    "build:worker": "wrangler deploy --dry-run --outdir dist/worker",
+    "build": "npm run build:web && npm run build:worker",
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.worker.json --noEmit && tsc -p tsconfig.web.json --noEmit",
+    "test": "vitest run",
+    "deploy": "npm run build:web && wrangler deploy",
+    "db:migrate:local": "wrangler d1 migrations apply DB --local",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote"
+  },
+  "dependencies": {
+    "hono": "^4.6.14",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260719.1",
+    "@eslint/js": "^9.17.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.17.0",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.0",
+    "vite": "^6.0.3",
+    "vitest": "^2.1.8",
+    "wrangler": "^4.112.0"
+  }
+}

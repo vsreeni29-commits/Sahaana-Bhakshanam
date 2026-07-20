@@ -1,0 +1,36 @@
+# Sahaana Bhakshanam — Cloudflare Worker configuration.
+#
+# Secrets (set with `wrangler secret put <NAME>`, never committed):
+#   CHEF_PHONE_E164_LIST      comma-separated E.164 chef/admin numbers (allowlist)
+#   CHEF_PHONE_E164           optional single-number fallback for the same allowlist
+#   OTP_HASH_SECRET           HMAC key for hashing OTP material and session-adjacent data
+#   TWILIO_ACCOUNT_SID        Twilio Verify credentials (production SMS OTP)
+#   TWILIO_AUTH_TOKEN
+#   TWILIO_VERIFY_SERVICE_SID
+#   ORDER_RELAY_URL           approved WhatsApp Business / direct-message relay endpoint
+#   ORDER_RELAY_SECRET        HMAC-SHA256 signing key for X-SB-Signature
+#   OTP_DEMO_CODE             local development only — never set in production
+
+name = "sahaana-bhakshanam"
+main = "src/worker/index.ts"
+compatibility_date = "2024-11-01"
+
+[assets]
+directory = "dist/client"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sahaana-bhakshanam"
+# Replace with the real database id after `wrangler d1 create sahaana-bhakshanam`.
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[vars]
+# Must remain "false" in production. Local demo mode goes in .dev.vars only.
+OTP_DEMO_MODE = "false"
+
+[observability]
+enabled = true

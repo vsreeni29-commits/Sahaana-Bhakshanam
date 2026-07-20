@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Banana-leaf plate with rice and two kumkum-toned accents -->
+    <path
+        android:fillColor="#3E7C4F"
+        android:pathData="M54,60 m-30,0 a30,17 0 1,0 60,0 a30,17 0 1,0 -60,0" />
+    <path
+        android:fillColor="#5A9B6B"
+        android:pathData="M54,58 m-24,0 a24,13 0 1,0 48,0 a24,13 0 1,0 -48,0" />
+    <path
+        android:fillColor="#FAF3E3"
+        android:pathData="M54,55 m-10,0 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0" />
+    <path
+        android:fillColor="#E2725B"
+        android:pathData="M38,60 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+    <path
+        android:fillColor="#F0C75E"
+        android:pathData="M70,60 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+</vector>
